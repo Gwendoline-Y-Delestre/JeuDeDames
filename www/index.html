@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** ">
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Jeu de Dames</title>
+  </head>
+  <body>
+    <div id="connexion">
+      <div><h1 class="titre">Connexion</h1></div>
+      <form id="connexionForm">
+        <label for="Login">Login :</label>
+        <input type="text" name="login" id="Login" />
+        <label for="MDP" name="password">Mot de Passe :</label>
+        <input type="text" id="MDP" name="password" />
+
+        <input type="submit" value="Se connecter" id="seConnecter" />
+      </form>
+    </div>
+    <div id="menu" hidden>
+      <div class="titre"><h1>Jeu de Dames</h1></div>
+
+      <button id="solo">Jouer seul</button>
+      <button id="ia">Jouer contre l'IA</button>
+      <button id="online">1 VS 1</button>
+      <button id="rules">Règles du jeu</button>
+      <button id="bestScores">Meilleurs Scores</button>
+    </div>
+
+    <div id="customPrompt" hidden>
+      <label for="inputValue">Entrez le nombre de cases par ligne :</label>
+      <input type="text" id="inputValue" />
+      <button id="submitInput">Lancer la partie</button>
+      <button id="annuler">Annuler</button>
+    </div>
+
+    <div id="rulesSection" hidden>
+      <h1>Les règles</h1>
+      <p>
+        Le but du jeu est de capturer toutes les pièces de l'adversaire ou de
+        bloquer ses pièces de manière à ce qu'il ne puisse plus effectuer de
+        mouvements.
+      </p>
+      <p>
+        Le jeu se joue sur un plateau de 64 cases, alternant les couleurs, avec
+        chaque joueur plaçant ses pièces sur les cases noires. Chaque joueur
+        commence avec 12 pièces.
+      </p>
+      <p>Les pièces se déplacent en diagonale vers l'avant.</p>
+      <p>
+        Le joueur avec les pions blancs commence. Si une case adjacente est
+        occupée par une pièce adverse et la case suivante est libre, le joueur
+        peut capturer la pièce adverse en effectuant un saut par-dessus elle. La
+        pièce capturée est retirée du jeu.
+      </p>
+      <p>
+        Si un pion atteint la dernière rangée de l'adversaire, il est couronné
+        et devient une dame.
+      </p>
+      <p>
+        Les dames peuvent se déplacer en diagonale dans n'importe quelle
+        direction sur plusieurs cases.
+      </p>
+      <p>
+        Si un joueur a la possibilité de capturer une pièce adverse, il doit le
+        faire. Plusieurs sauts peuvent être effectués en un seul tour. Le jeu se
+        termine lorsque l'un des joueurs capture toutes les pièces de
+        l'adversaire ou bloque ses pièces de manière à ce qu'il ne puisse plus
+        bouger.
+      </p>
+    </div>
+
+    <div id="bestScoresSection" hidden>
+      <ul>
+        <li>meilleur scores 1</li>
+        <li>meilleur scores 2</li>
+        <li>meilleur scores 3</li>
+        <li>meilleur scores 4</li>
+      </ul>
+    </div>
+    <div id="game" hidden>
+      <!-- <div id="game"> -->
+      <div id="header">
+        <div id="player1-score">Joueur Blanc : 0</div>
+        <div id="current-player">Tour de : Joueur Blanc</div>
+        <div id="player2-score">Joueur Noir : 0</div>
+      </div>
+      <div id="grid">
+        <svg id="grille" width="1000" height="1000"></svg>
+      </div>
+
+      <div><button id="abandon">Abandonner</button></div>
+    </div>
+    <div id="endGame" hidden>
+      <div id="perdu" hidden>
+        <h1>Vous avez perdu</h1>
+        <p>Votre score :</p>
+        <p>Le score de votre adversaire :</p>
+        <p>Nombre de pions gagnés :</p>
+        <p>Nombre de pions perdus :</p>
+      </div>
+      <div id="gagne" hidden>
+        <h1>Vous avez gagné !</h1>
+        <p>Votre score :</p>
+        <p>Le score de votre adversaire :</p>
+        <p>Nombre de pions gagnés :</p>
+        <p>Nombre de pions perdus :</p>
+      </div>
+      <button id="rejouer">Rejouer</button>
+      <button id="homePage">Retour à l'accueil</button>
+    </div>
+    <div id="waitingList" hidden>
+      <h1 style="text-align: center; margin: 0 auto">
+        Vous êtes en attente d'un autre joueur
+      </h1>
+      <p style="text-align: center">Veulliez ne pas vous déconnecter</p>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <script src="cordova.js"></script>
+
+    <script type="module" src="js/index.js"></script>
+    <script>
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+#header {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  height: 3%;
+}
+#player1-score {
+  background-color: white;
+  width: 33.3%;
+}
+#player2-score {
+  background-color: white;
+  width: 33.3%;
+}
+#current-player {
+  background-color: black;
+  color: white;
+  width: 33.3%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 99.5vh;
+  background-color: grey;
+}
+
+#header,
+#grid {
+  margin-top: 1%;
+}
+
+#menu {
+  margin: auto;
+  width: 60%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #07182e;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.titre {
+  margin: auto;
+  margin-bottom: 10%;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+button {
+  display: block;
+  margin: auto;
+  margin-bottom: 5%;
+  justify-content: center;
+  align-items: center;
+
+  outline: none;
+  cursor: pointer;
+  width: 80%;
+  height: 10%;
+  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%);
+  border-radius: 50px;
+  border: 1px solid #8f9092;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+}
+
+#abandon {
+  margin-bottom: 0;
+  margin-top: 1.5%;
+}
+
+#menu button:hover {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+}
+
+#menu button:active {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+#menu button:focus {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+.content-visible {
+  visibility: visible;
+  display: block;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  margin: auto;
+  width: 80%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  background: rgba(7, 24, 46, 0.9);
+  color: white;
+
+  padding: 20px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: visibility 0.3s ease;
+}
+
+#rulesSection {
+  text-align: center;
+}
+
+#bestScoresSection {
+}
+
+.showGame {
+  display: block;
+  visibility: visible;
+}
+
+#connexion {
+  margin: auto;
+  width: 40%;
+  height: 60%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #07182e;
+  overflow: hidden;
+  border-radius: 20px;
+  color: white;
+}
+
+#connexionForm {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+}
+
+#connexionForm input {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 80%;
+  color: white;
+  margin: auto;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  justify-content: center;
+  align-items: center;
+}
+
+.rendVisible {
+  visibility: visible;
+}
+
+.rendInvisible {
+  visibility: hidden;
+}
+
+/* Ajoutez du style pour la boîte de saisie personnalisée */
+#customPrompt {
+  border: #007bff 1px solid;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  /* transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+#customPrompt label {
+  margin-bottom: 10px;
+}
+
+#inputValue {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+#submitInput {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+#endGame {
+  margin: auto;
+  width: 60%;
+  height: 80%;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  background: #07182e;
+  overflow: hidden;
+  border-radius: 20px;
+  color: white;
+  font-size: 22px;
+}
+
+#perdu h1 {
+  margin-bottom: 8%;
+}
+#perdu {
+  margin-bottom: 8%;
+}
+
+#gagne h1 {
+  margin-bottom: 8%;
+}
+#gagne {
+  margin-bottom: 8%;
+}
+
+@media only screen and (max-width: 700px) {
+  #menu {
+    margin: auto;
+    width: 80%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    background: rgb(7, 24, 46);
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  #titre {
+    margin: auto;
+    margin-bottom: 20%;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+  }
+
+  #menu button {
+    display: flex;
+    margin: auto;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+
+    outline: none;
+    cursor: pointer;
+    width: 80%;
+    height: 10%;
+    background-image: linear-gradient(
+      to top,
+      #d8d9db 0%,
+      #fff 80%,
+      #fdfdfd 100%
+    );
+    border-radius: 50px;
+    border: 1px solid #8f9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+  }
+
+  #connexion {
+    width: 80%;
+    height: 50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #perdu h1 {
+    margin-bottom: 5%;
+  }
+  #perdu {
+    margin-bottom: 5%;
+  }
+
+  #gagne h1 {
+    margin-bottom: 5%;
+  }
+  #gagne {
+    margin-bottom: 5%;
+  }
+  #menu {
+    margin: auto;
+    width: 80%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    background: rgb(7, 24, 46);
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  #titre {
+    margin: auto;
+    margin-bottom: 5%;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+  }
+
+  #menu button {
+    display: flex;
+    margin: auto;
+    margin-bottom: 2%;
+    justify-content: center;
+    align-items: center;
+
+    outline: none;
+    cursor: pointer;
+    width: 80%;
+    height: 10%;
+    background-image: linear-gradient(
+      to top,
+      #d8d9db 0%,
+      #fff 80%,
+      #fdfdfd 100%
+    );
+    border-radius: 50px;
+    border: 1px solid #8f9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+  }
+}
